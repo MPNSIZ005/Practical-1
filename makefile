@@ -1,7 +1,7 @@
 .RECIPEPREFIX +=
 CC = gcc
 CFLAGS = -Wall -lm -lrt -lwiringPi -g
-
+ 
 PROG = bin/*
 OBJS = obj/*
 
