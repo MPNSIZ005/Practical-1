@@ -5,7 +5,7 @@
  * Further Modified By: Mark Njoroge 
  *
  * 
- * <STUDNUM_1> <STUDNUM_2>
+ * <NLNCOC001> <MPNSIZ005>
  * Date
 */
 
@@ -31,11 +31,14 @@ void CleanUp(int sig){
 	printf("Cleaning up\n");
 
 	//Set LED to low then input mode
+	digitalWrite(LED,LOW);
+	pinMode(LED,INPUT);
 	//Logic here
 
 
 	for (int j=0; j < sizeof(BTNS)/sizeof(BTNS[0]); j++) {
 		pinMode(BTNS[j],INPUT);
+		pullUpDnControl(BTNS[j],PUD_DOWN);
 	}
 
 	exit(0);
@@ -55,6 +58,8 @@ void initGPIO(void){
 	RTC = wiringPiI2CSetup(RTCAddr); //Set up the RTC
 	
 	//Set up the LED
+	pinMode(LED,OUTPUT);
+	digitalWrite(LED,LOW);
 	//Write your Logic here
 
 	
